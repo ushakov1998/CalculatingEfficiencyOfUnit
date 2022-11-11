@@ -83,9 +83,14 @@
   <ItemGroup>
     <None Include="icons\microsoft_office_excel_logo_icon_145720.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\removetheproperty_theapplication_eliminar_2965.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MofelOfEfficiency\ModelOfEfficiency.csproj">
+      <Project>{D3B0B4EF-43F9-4895-B4A1-D57554505C58}</Project>
+      <Name>ModelOfEfficiency</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

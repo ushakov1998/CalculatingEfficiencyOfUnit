@@ -36,8 +36,8 @@ namespace CalculatingEfficiencyOfUnit
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBoxFileSelection = new System.Windows.Forms.GroupBox();
-            this.buttonSelectFile = new System.Windows.Forms.Button();
-            this.textBoxForFilePath = new System.Windows.Forms.TextBox();
+            this.LoadRg2Button = new System.Windows.Forms.Button();
+            this.LoadRg2TextBox = new System.Windows.Forms.TextBox();
             this.labelFilePath = new System.Windows.Forms.Label();
             this.groupBoxInitialData = new System.Windows.Forms.GroupBox();
             this.buttonUploadAndCheck = new System.Windows.Forms.Button();
@@ -47,6 +47,7 @@ namespace CalculatingEfficiencyOfUnit
             this.buttonSaveExcel = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.buttonStopCalculating = new System.Windows.Forms.Button();
+            this.ClearProtocol = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ProtocolDataGrid = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -55,7 +56,7 @@ namespace CalculatingEfficiencyOfUnit
             this.dispatcherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deltaU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.efficiency = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Rg2OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.groupBoxFileSelection.SuspendLayout();
             this.groupBoxInitialData.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -73,8 +74,8 @@ namespace CalculatingEfficiencyOfUnit
             // 
             // groupBoxFileSelection
             // 
-            this.groupBoxFileSelection.Controls.Add(this.buttonSelectFile);
-            this.groupBoxFileSelection.Controls.Add(this.textBoxForFilePath);
+            this.groupBoxFileSelection.Controls.Add(this.LoadRg2Button);
+            this.groupBoxFileSelection.Controls.Add(this.LoadRg2TextBox);
             this.groupBoxFileSelection.Controls.Add(this.labelFilePath);
             this.groupBoxFileSelection.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
             this.groupBoxFileSelection.Location = new System.Drawing.Point(18, 38);
@@ -84,26 +85,27 @@ namespace CalculatingEfficiencyOfUnit
             this.groupBoxFileSelection.TabStop = false;
             this.groupBoxFileSelection.Text = "Выбор файла режима";
             // 
-            // buttonSelectFile
+            // LoadRg2Button
             // 
-            this.buttonSelectFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSelectFile.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
-            this.buttonSelectFile.ForeColor = System.Drawing.Color.Black;
-            this.buttonSelectFile.Location = new System.Drawing.Point(248, 65);
-            this.buttonSelectFile.Name = "buttonSelectFile";
-            this.buttonSelectFile.Size = new System.Drawing.Size(75, 27);
-            this.buttonSelectFile.TabIndex = 2;
-            this.buttonSelectFile.Text = "Выбрать";
-            this.toolTip1.SetToolTip(this.buttonSelectFile, "Выбрать путь до файла режима");
-            this.buttonSelectFile.UseVisualStyleBackColor = true;
+            this.LoadRg2Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoadRg2Button.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
+            this.LoadRg2Button.ForeColor = System.Drawing.Color.Black;
+            this.LoadRg2Button.Location = new System.Drawing.Point(248, 65);
+            this.LoadRg2Button.Name = "LoadRg2Button";
+            this.LoadRg2Button.Size = new System.Drawing.Size(75, 27);
+            this.LoadRg2Button.TabIndex = 2;
+            this.LoadRg2Button.Text = "Выбрать";
+            this.toolTip1.SetToolTip(this.LoadRg2Button, "Выбрать путь до файла режима");
+            this.LoadRg2Button.UseVisualStyleBackColor = true;
+            this.LoadRg2Button.Click += new System.EventHandler(this.buttonSelectFile_Click);
             // 
-            // textBoxForFilePath
+            // LoadRg2TextBox
             // 
-            this.textBoxForFilePath.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
-            this.textBoxForFilePath.Location = new System.Drawing.Point(120, 30);
-            this.textBoxForFilePath.Name = "textBoxForFilePath";
-            this.textBoxForFilePath.Size = new System.Drawing.Size(203, 23);
-            this.textBoxForFilePath.TabIndex = 1;
+            this.LoadRg2TextBox.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
+            this.LoadRg2TextBox.Location = new System.Drawing.Point(120, 30);
+            this.LoadRg2TextBox.Name = "LoadRg2TextBox";
+            this.LoadRg2TextBox.Size = new System.Drawing.Size(203, 23);
+            this.LoadRg2TextBox.TabIndex = 1;
             // 
             // labelFilePath
             // 
@@ -201,9 +203,24 @@ namespace CalculatingEfficiencyOfUnit
             this.toolTip1.SetToolTip(this.buttonStopCalculating, "Остановить процесс расчета");
             this.buttonStopCalculating.UseVisualStyleBackColor = true;
             // 
+            // ClearProtocol
+            // 
+            this.ClearProtocol.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ClearProtocol.BackgroundImage")));
+            this.ClearProtocol.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClearProtocol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ClearProtocol.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
+            this.ClearProtocol.ForeColor = System.Drawing.SystemColors.Control;
+            this.ClearProtocol.Location = new System.Drawing.Point(653, 16);
+            this.ClearProtocol.Name = "ClearProtocol";
+            this.ClearProtocol.Size = new System.Drawing.Size(35, 35);
+            this.ClearProtocol.TabIndex = 18;
+            this.toolTip1.SetToolTip(this.ClearProtocol, "Очистить протокол");
+            this.ClearProtocol.UseVisualStyleBackColor = true;
+            this.ClearProtocol.Click += new System.EventHandler(this.ClearProtocol_Click);
+            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.ClearProtocol);
             this.groupBox1.Controls.Add(this.ProtocolDataGrid);
             this.groupBox1.Controls.Add(this.buttornCalculate);
             this.groupBox1.Controls.Add(this.buttonStopCalculating);
@@ -306,19 +323,9 @@ namespace CalculatingEfficiencyOfUnit
             this.efficiency.HeaderText = "Эффективность";
             this.efficiency.Name = "efficiency";
             // 
-            // button1
+            // Rg2OpenFileDialog
             // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(653, 16);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 35);
-            this.button1.TabIndex = 18;
-            this.toolTip1.SetToolTip(this.button1, "Очистить протокол");
-            this.button1.UseVisualStyleBackColor = true;
+            this.Rg2OpenFileDialog.FileName = "Rg2OpenFileDialog";
             // 
             // MainForm
             // 
@@ -356,8 +363,8 @@ namespace CalculatingEfficiencyOfUnit
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.GroupBox groupBoxFileSelection;
         private System.Windows.Forms.GroupBox groupBoxInitialData;
-        private System.Windows.Forms.Button buttonSelectFile;
-        private System.Windows.Forms.TextBox textBoxForFilePath;
+        private System.Windows.Forms.Button LoadRg2Button;
+        private System.Windows.Forms.TextBox LoadRg2TextBox;
         private System.Windows.Forms.Label labelFilePath;
         private System.Windows.Forms.Button buttonUploadAndCheck;
         private System.Windows.Forms.TextBox textBoxForNodeNumber;
@@ -374,7 +381,8 @@ namespace CalculatingEfficiencyOfUnit
         private System.Windows.Forms.DataGridViewTextBoxColumn dispatcherName;
         private System.Windows.Forms.DataGridViewTextBoxColumn deltaU;
         private System.Windows.Forms.DataGridViewTextBoxColumn efficiency;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ClearProtocol;
+        private System.Windows.Forms.OpenFileDialog Rg2OpenFileDialog;
     }
 }
 

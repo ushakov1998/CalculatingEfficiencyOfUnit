@@ -7,7 +7,7 @@ using ASTRALib;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace MofelForEfficiency
+namespace ModelOfEfficiency
 {
     /// <summary>
     /// Класс, осуществляющий взаимодействие с RastrWin3

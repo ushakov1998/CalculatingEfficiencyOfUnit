@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31727.386
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewForEfficiency", "CalculatingEfficiencyOfUnit\ViewForEfficiency.csproj", "{FB5F3320-7B17-4633-9A7A-A15FEC44668D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MofelForEfficiency", "MofelForEfficiency\MofelForEfficiency.csproj", "{AB523055-69DA-48F3-BA7D-F3AD3B4126FF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelOfEfficiency", "MofelOfEfficiency\ModelOfEfficiency.csproj", "{D3B0B4EF-43F9-4895-B4A1-D57554505C58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{FB5F3320-7B17-4633-9A7A-A15FEC44668D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB5F3320-7B17-4633-9A7A-A15FEC44668D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB5F3320-7B17-4633-9A7A-A15FEC44668D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AB523055-69DA-48F3-BA7D-F3AD3B4126FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB523055-69DA-48F3-BA7D-F3AD3B4126FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB523055-69DA-48F3-BA7D-F3AD3B4126FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB523055-69DA-48F3-BA7D-F3AD3B4126FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3B0B4EF-43F9-4895-B4A1-D57554505C58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3B0B4EF-43F9-4895-B4A1-D57554505C58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3B0B4EF-43F9-4895-B4A1-D57554505C58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3B0B4EF-43F9-4895-B4A1-D57554505C58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
