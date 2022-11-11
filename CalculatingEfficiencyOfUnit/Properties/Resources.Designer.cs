@@ -59,25 +59,5 @@ namespace CalculatingEfficiencyOfUnit.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_microsoft_excel_50 {
-            get {
-                object obj = ResourceManager.GetObject("icons8-microsoft-excel-50", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap microsoft_office_excel_logo_icon_145720 {
-            get {
-                object obj = ResourceManager.GetObject("microsoft_office_excel_logo_icon_145720", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

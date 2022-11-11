@@ -133,6 +133,28 @@
     <value>True</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="buttonSaveExcel.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAADsOAAA7DgHMtqGDAAAAB3RJ
+        TUUH5AYDDS4KP/7aGwAAA2dJREFUWEftlmlIVFEUxwU/FAOlNfNmzAiTaPmgmeWClZMSUTqNS5FLWZbh
+        1kIR2mKmWePSosUYliUtamAUJS1qUAqRLQQt9KkIooIWsLICLbX+nfN8Iw5vns6o06cO/Hi8ey/n/ObO
+        ue89F6Xwrkm1MIpQDUp1qmpG/VbVnLsFjuAqlZMHJWX8iStEC9E8INWpzSTQTEntoUW65kjl5EFJmQME
+        7KI6FSQASuoInVI5eVBSpsKqyEAMTQBSOXlQ0v8C/0ZAV7RURcwmwogFfRQa9JMqk+q9qpKhxOSzKb3F
+        a9PEqyjQSolb90nXwWGBSuIL0Ul0WFFs7CagxIRDsZhYHg/P8jh4muPgfS4FPo3b4dOQbTcs0EVgqKhz
+        FsItKxTuu8OgOxxj/bfYAQtYJdQWGaA2RUBjihxwTKR4KcZvD8eY9CC47VowfAFtoQG+5tXIajiGxLp8
+        eNA289i0sgRsuX4Uay+ZMLEk2lpgBwmkBcJt5wgJTKdid14/xYfvbQg7tQnj9i/BthtmdPV0w9RyVtwN
+        pwkwGtrqhLo8/PjVgVOPrsLPvAbPPrxC65vnmHEkUZTsW+8MAcazJArnHjeIu3D+6U187viGlRf22u4B
+        iwD3QCkJSEfSXmwKCIWRCD2ZiTdfP4KjliQmFEfJ1rGAOjscY1MC4J6th67ECK8z6+B12n4UBQIr1uNl
+        2ztRoOZJk6KAsFEPddRM6JKCIWzWY3zBIoewKcCY713Eu/ZPaHr5AO2dPxBPfcH9YbWOBLSZodBE+sIj
+        IRBCxjy454Y7hI0mjISxOlv838vvX8L8ygy8JRE+GdPK4mVNKGwgAQMLBEHIHKYAH7Eph1eg8cV9vKcG
+        5D7gBxAfv54/v5F/q8q5AgIln3siHVV0/Pjs84OIx/zKk3H84WUU3D4Nr4PLnCdggX8lF+67p53he22/
+        NSIjJDD0lxE/qjMsTSgJ7LFdSAkWUH4dFxq6dSbaCSVyF0NIDBAFdIlB0K0L6SGJn47AArY/SEqMeiEl
+        pF6TQAWUiJkFdYQPNEY/eKwMgseqYLo6hvQBJg/30Kku2uWzKwQqIkTbgMeZWH/o4gN7iw8BqZw8aJKp
+        6L/YGUjl5EGT/wWY0v6LnUCHVE4eNMmEENeIFqJ5BLHky5PKyYMmLYwmVM4h2PUvSGwB3PB2lNQAAAAA
+        SUVORK5CYII=
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAMDAAAAEAIACoJQAAFgAAACgAAAAwAAAAYAAAAAEAIAAAAAAAACQAABx2AAAcdgAAAAAAAAAA
