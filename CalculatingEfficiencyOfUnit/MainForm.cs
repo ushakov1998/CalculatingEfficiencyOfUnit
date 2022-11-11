@@ -27,8 +27,8 @@ namespace CalculatingEfficiencyOfUnit
         /// </summary>
         private void buttonSelectFile_Click(object sender, EventArgs e)
         {
-            string Rg2Filter = "Файл автоматики (*.rg2)|*.rg2";
-            string shablon = @"./Resources/режим.rg2";
+            string Rg2Filter = "Файл режима (*.rg2)|*.rg2";
+            string shablon = @"C:\Users\Aleksandr\source\repos\ushakov1998\Diploma\CalculatingEfficiencyOfUnit\CalculatingEfficiencyOfUnit\Resources\режим.rg2";
 
             try
             {
@@ -58,14 +58,14 @@ namespace CalculatingEfficiencyOfUnit
             {
                 case MessageType.Error:
                     {
-                        Bitmap img = new Bitmap(@"./Resources/new_close.png");
+                        Bitmap img = new Bitmap(@"C:\Users\Aleksandr\source\repos\ushakov1998\Diploma\CalculatingEfficiencyOfUnit\CalculatingEfficiencyOfUnit\Resources\new_close.png");
                         ProtocolDataGrid.Rows.Add(img, message);
                         break;
                     }
 
                 case MessageType.Info:
                     {
-                        Bitmap img = new Bitmap(@"./Resources/info.png");
+                        Bitmap img = new Bitmap(@"C:\Users\Aleksandr\source\repos\ushakov1998\Diploma\CalculatingEfficiencyOfUnit\CalculatingEfficiencyOfUnit\Resources\info.png");
                         ProtocolDataGrid.Rows.Add(img, message);
                         break;
                     }

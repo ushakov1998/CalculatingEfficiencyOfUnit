@@ -76,6 +76,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\режим.rg2" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -91,6 +92,10 @@
       <Project>{D3B0B4EF-43F9-4895-B4A1-D57554505C58}</Project>
       <Name>ModelOfEfficiency</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\info.png" />
+    <Content Include="Resources\new_close.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
