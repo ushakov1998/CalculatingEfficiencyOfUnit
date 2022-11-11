@@ -59,5 +59,15 @@ namespace CalculatingEfficiencyOfUnit.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap removetheproperty_theapplication_eliminar_2965 {
+            get {
+                object obj = ResourceManager.GetObject("removetheproperty_theapplication_eliminar_2965", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

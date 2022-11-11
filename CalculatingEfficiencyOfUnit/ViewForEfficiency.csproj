@@ -83,8 +83,9 @@
   <ItemGroup>
     <None Include="icons\microsoft_office_excel_logo_icon_145720.png" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <None Include="Resources\removetheproperty_theapplication_eliminar_2965.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

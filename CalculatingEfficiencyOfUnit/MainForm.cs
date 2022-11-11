@@ -12,6 +12,14 @@ namespace CalculatingEfficiencyOfUnit
 {
     public partial class MainForm : Form
     {
+        /// <summary>
+        /// Путь к файлу исходного режима
+        /// </summary>
+        private string _rg2FileName;
+
+        /// <summary>
+        /// Главная форма
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
