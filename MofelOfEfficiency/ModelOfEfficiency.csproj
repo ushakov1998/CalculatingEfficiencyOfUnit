@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalculationOfEfficiency.cs" />
+    <Compile Include="EventMessageProtocol.cs" />
     <Compile Include="MessageType.cs" />
     <Compile Include="EventForProgress.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
