@@ -47,11 +47,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CalculationOfEfficiency.cs" />
+    <Compile Include="Data\DataForView\EfficiencyBase.cs" />
+    <Compile Include="Data\DataForView\EfficiencyGenerator.cs" />
+    <Compile Include="Data\DataForView\EfficiencyManageSkrm.cs" />
+    <Compile Include="Data\DataForView\ManageSkrmPoint.cs" />
+    <Compile Include="Data\GeneratorEfficiencyVM.cs" />
+    <Compile Include="Data\Table\Generator.cs" />
+    <Compile Include="Data\Table\ManagedSkrm.cs" />
+    <Compile Include="Data\Table\NitRow.cs" />
+    <Compile Include="Data\Table\Node.cs" />
+    <Compile Include="Data\Table\NodeType.cs" />
+    <Compile Include="Data\Table\Vetv.cs" />
+    <Compile Include="Data\Table\VetvNit.cs" />
+    <Compile Include="EfficiencyOperation.cs" />
     <Compile Include="EventMessageProtocol.cs" />
     <Compile Include="MessageType.cs" />
     <Compile Include="EventForProgress.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RastrSupplier.cs" />
+    <Compile Include="RastrModel\GeneratorOperation.cs" />
+    <Compile Include="RastrModel\NodeOperation.cs" />
+    <Compile Include="RastrModel\RastrConst.cs" />
+    <Compile Include="RastrModel\RastrOperations.cs" />
+    <Compile Include="RastrModel\VetvOperation.cs" />
+    <Compile Include="RastrOperations.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

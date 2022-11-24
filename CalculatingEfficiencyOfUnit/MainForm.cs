@@ -1,4 +1,5 @@
-﻿using ModelOfEfficiency;
+﻿using MDAWin;
+using ModelOfEfficiency;
 using System;
 using System.Drawing;
 using System.IO;
@@ -91,7 +92,7 @@ namespace CalculatingEfficiencyOfUnit
                 try
                 {
                     textbox.Text = openFileDialog.FileName;
-                    RastrSupplier.LoadFile(openFileDialog.FileName, shablon);
+                    /*RastrOperations.LoadRepl(textbox.Text);*/
                     AddMessageToDataGrid(MessageType.Info, $"Загружен файл '{openFileDialog.FileName}'.");
                 }
                 catch (Exception exeption)
