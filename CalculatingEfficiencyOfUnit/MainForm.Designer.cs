@@ -31,23 +31,28 @@ namespace CalculatingEfficiencyOfUnit
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBoxFileSelection = new System.Windows.Forms.GroupBox();
             this.LoadRg2Button = new System.Windows.Forms.Button();
+            this.buttonUploadAndCheck = new System.Windows.Forms.Button();
             this.LoadRg2TextBox = new System.Windows.Forms.TextBox();
             this.labelFilePath = new System.Windows.Forms.Label();
             this.groupBoxInitialData = new System.Windows.Forms.GroupBox();
-            this.buttonUploadAndCheck = new System.Windows.Forms.Button();
-            this.textBoxForNodeNumber = new System.Windows.Forms.TextBox();
+            this.nodeNumberTextBox = new System.Windows.Forms.TextBox();
             this.labelNodeNumber = new System.Windows.Forms.Label();
+            this.comboBoxKPName = new System.Windows.Forms.ComboBox();
+            this.labelKPName = new System.Windows.Forms.Label();
+            this.comboBoxAreaName = new System.Windows.Forms.ComboBox();
+            this.labelAreaName = new System.Windows.Forms.Label();
             this.buttornCalculate = new System.Windows.Forms.Button();
-            this.buttonSaveExcel = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.buttonStopCalculating = new System.Windows.Forms.Button();
+            this.buttonAreaSettings = new System.Windows.Forms.Button();
             this.ClearProtocol = new System.Windows.Forms.Button();
+            this.buttonSaveExcel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ProtocolDataGrid = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -75,6 +80,7 @@ namespace CalculatingEfficiencyOfUnit
             // groupBoxFileSelection
             // 
             this.groupBoxFileSelection.Controls.Add(this.LoadRg2Button);
+            this.groupBoxFileSelection.Controls.Add(this.buttonUploadAndCheck);
             this.groupBoxFileSelection.Controls.Add(this.LoadRg2TextBox);
             this.groupBoxFileSelection.Controls.Add(this.labelFilePath);
             this.groupBoxFileSelection.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
@@ -90,7 +96,7 @@ namespace CalculatingEfficiencyOfUnit
             this.LoadRg2Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LoadRg2Button.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
             this.LoadRg2Button.ForeColor = System.Drawing.Color.Black;
-            this.LoadRg2Button.Location = new System.Drawing.Point(248, 65);
+            this.LoadRg2Button.Location = new System.Drawing.Point(78, 65);
             this.LoadRg2Button.Name = "LoadRg2Button";
             this.LoadRg2Button.Size = new System.Drawing.Size(75, 27);
             this.LoadRg2Button.TabIndex = 2;
@@ -99,44 +105,12 @@ namespace CalculatingEfficiencyOfUnit
             this.LoadRg2Button.UseVisualStyleBackColor = true;
             this.LoadRg2Button.Click += new System.EventHandler(this.buttonSelectFile_Click);
             // 
-            // LoadRg2TextBox
-            // 
-            this.LoadRg2TextBox.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
-            this.LoadRg2TextBox.Location = new System.Drawing.Point(120, 30);
-            this.LoadRg2TextBox.Name = "LoadRg2TextBox";
-            this.LoadRg2TextBox.Size = new System.Drawing.Size(203, 23);
-            this.LoadRg2TextBox.TabIndex = 1;
-            // 
-            // labelFilePath
-            // 
-            this.labelFilePath.AutoSize = true;
-            this.labelFilePath.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelFilePath.ForeColor = System.Drawing.Color.Black;
-            this.labelFilePath.Location = new System.Drawing.Point(16, 32);
-            this.labelFilePath.Name = "labelFilePath";
-            this.labelFilePath.Size = new System.Drawing.Size(90, 16);
-            this.labelFilePath.TabIndex = 0;
-            this.labelFilePath.Text = "Файл режима:";
-            // 
-            // groupBoxInitialData
-            // 
-            this.groupBoxInitialData.Controls.Add(this.buttonUploadAndCheck);
-            this.groupBoxInitialData.Controls.Add(this.textBoxForNodeNumber);
-            this.groupBoxInitialData.Controls.Add(this.labelNodeNumber);
-            this.groupBoxInitialData.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
-            this.groupBoxInitialData.Location = new System.Drawing.Point(372, 38);
-            this.groupBoxInitialData.Name = "groupBoxInitialData";
-            this.groupBoxInitialData.Size = new System.Drawing.Size(349, 110);
-            this.groupBoxInitialData.TabIndex = 2;
-            this.groupBoxInitialData.TabStop = false;
-            this.groupBoxInitialData.Text = "Исходные данные";
-            // 
             // buttonUploadAndCheck
             // 
             this.buttonUploadAndCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUploadAndCheck.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
             this.buttonUploadAndCheck.ForeColor = System.Drawing.Color.Black;
-            this.buttonUploadAndCheck.Location = new System.Drawing.Point(169, 65);
+            this.buttonUploadAndCheck.Location = new System.Drawing.Point(168, 65);
             this.buttonUploadAndCheck.Name = "buttonUploadAndCheck";
             this.buttonUploadAndCheck.Size = new System.Drawing.Size(155, 27);
             this.buttonUploadAndCheck.TabIndex = 3;
@@ -144,24 +118,99 @@ namespace CalculatingEfficiencyOfUnit
             this.toolTip1.SetToolTip(this.buttonUploadAndCheck, "Загрузка и проверка файла режима");
             this.buttonUploadAndCheck.UseVisualStyleBackColor = true;
             // 
-            // textBoxForNodeNumber
+            // LoadRg2TextBox
             // 
-            this.textBoxForNodeNumber.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
-            this.textBoxForNodeNumber.Location = new System.Drawing.Point(121, 32);
-            this.textBoxForNodeNumber.Name = "textBoxForNodeNumber";
-            this.textBoxForNodeNumber.Size = new System.Drawing.Size(203, 23);
-            this.textBoxForNodeNumber.TabIndex = 3;
+            this.LoadRg2TextBox.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LoadRg2TextBox.Location = new System.Drawing.Point(120, 27);
+            this.LoadRg2TextBox.Name = "LoadRg2TextBox";
+            this.LoadRg2TextBox.Size = new System.Drawing.Size(203, 21);
+            this.LoadRg2TextBox.TabIndex = 1;
+            // 
+            // labelFilePath
+            // 
+            this.labelFilePath.AutoSize = true;
+            this.labelFilePath.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelFilePath.ForeColor = System.Drawing.Color.Black;
+            this.labelFilePath.Location = new System.Drawing.Point(11, 28);
+            this.labelFilePath.Name = "labelFilePath";
+            this.labelFilePath.Size = new System.Drawing.Size(90, 16);
+            this.labelFilePath.TabIndex = 0;
+            this.labelFilePath.Text = "Файл режима:";
+            // 
+            // groupBoxInitialData
+            // 
+            this.groupBoxInitialData.Controls.Add(this.nodeNumberTextBox);
+            this.groupBoxInitialData.Controls.Add(this.labelNodeNumber);
+            this.groupBoxInitialData.Controls.Add(this.comboBoxKPName);
+            this.groupBoxInitialData.Controls.Add(this.labelKPName);
+            this.groupBoxInitialData.Controls.Add(this.comboBoxAreaName);
+            this.groupBoxInitialData.Controls.Add(this.labelAreaName);
+            this.groupBoxInitialData.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
+            this.groupBoxInitialData.Location = new System.Drawing.Point(372, 12);
+            this.groupBoxInitialData.Name = "groupBoxInitialData";
+            this.groupBoxInitialData.Size = new System.Drawing.Size(349, 136);
+            this.groupBoxInitialData.TabIndex = 2;
+            this.groupBoxInitialData.TabStop = false;
+            this.groupBoxInitialData.Text = "Исходные данные";
+            // 
+            // nodeNumberTextBox
+            // 
+            this.nodeNumberTextBox.Font = new System.Drawing.Font("Bahnschrift", 8.25F);
+            this.nodeNumberTextBox.Location = new System.Drawing.Point(146, 91);
+            this.nodeNumberTextBox.Name = "nodeNumberTextBox";
+            this.nodeNumberTextBox.Size = new System.Drawing.Size(188, 21);
+            this.nodeNumberTextBox.TabIndex = 8;
             // 
             // labelNodeNumber
             // 
             this.labelNodeNumber.AutoSize = true;
             this.labelNodeNumber.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
             this.labelNodeNumber.ForeColor = System.Drawing.Color.Black;
-            this.labelNodeNumber.Location = new System.Drawing.Point(20, 34);
+            this.labelNodeNumber.Location = new System.Drawing.Point(65, 92);
             this.labelNodeNumber.Name = "labelNodeNumber";
-            this.labelNodeNumber.Size = new System.Drawing.Size(78, 16);
-            this.labelNodeNumber.TabIndex = 3;
-            this.labelNodeNumber.Text = "Номер узла:";
+            this.labelNodeNumber.Size = new System.Drawing.Size(75, 16);
+            this.labelNodeNumber.TabIndex = 7;
+            this.labelNodeNumber.Text = "Номер узла";
+            // 
+            // comboBoxKPName
+            // 
+            this.comboBoxKPName.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxKPName.FormattingEnabled = true;
+            this.comboBoxKPName.Location = new System.Drawing.Point(146, 58);
+            this.comboBoxKPName.Name = "comboBoxKPName";
+            this.comboBoxKPName.Size = new System.Drawing.Size(188, 21);
+            this.comboBoxKPName.TabIndex = 6;
+            // 
+            // labelKPName
+            // 
+            this.labelKPName.AutoSize = true;
+            this.labelKPName.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
+            this.labelKPName.ForeColor = System.Drawing.Color.Black;
+            this.labelKPName.Location = new System.Drawing.Point(16, 59);
+            this.labelKPName.Name = "labelKPName";
+            this.labelKPName.Size = new System.Drawing.Size(125, 16);
+            this.labelKPName.TabIndex = 5;
+            this.labelKPName.Text = "Контрольный пункт";
+            // 
+            // comboBoxAreaName
+            // 
+            this.comboBoxAreaName.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxAreaName.FormattingEnabled = true;
+            this.comboBoxAreaName.Location = new System.Drawing.Point(146, 23);
+            this.comboBoxAreaName.Name = "comboBoxAreaName";
+            this.comboBoxAreaName.Size = new System.Drawing.Size(188, 21);
+            this.comboBoxAreaName.TabIndex = 4;
+            // 
+            // labelAreaName
+            // 
+            this.labelAreaName.AutoSize = true;
+            this.labelAreaName.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
+            this.labelAreaName.ForeColor = System.Drawing.Color.Black;
+            this.labelAreaName.Location = new System.Drawing.Point(16, 24);
+            this.labelAreaName.Name = "labelAreaName";
+            this.labelAreaName.Size = new System.Drawing.Size(124, 16);
+            this.labelAreaName.TabIndex = 3;
+            this.labelAreaName.Text = "Операционная зона";
             // 
             // buttornCalculate
             // 
@@ -176,20 +225,6 @@ namespace CalculatingEfficiencyOfUnit
             this.toolTip1.SetToolTip(this.buttornCalculate, "Рассчитать эффективность СРН");
             this.buttornCalculate.UseVisualStyleBackColor = true;
             // 
-            // buttonSaveExcel
-            // 
-            this.buttonSaveExcel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonSaveExcel.BackgroundImage")));
-            this.buttonSaveExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonSaveExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSaveExcel.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
-            this.buttonSaveExcel.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonSaveExcel.Location = new System.Drawing.Point(671, 5);
-            this.buttonSaveExcel.Name = "buttonSaveExcel";
-            this.buttonSaveExcel.Size = new System.Drawing.Size(35, 35);
-            this.buttonSaveExcel.TabIndex = 5;
-            this.toolTip1.SetToolTip(this.buttonSaveExcel, "Сохранить отчет в Excel");
-            this.buttonSaveExcel.UseVisualStyleBackColor = true;
-            // 
             // buttonStopCalculating
             // 
             this.buttonStopCalculating.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -202,6 +237,21 @@ namespace CalculatingEfficiencyOfUnit
             this.buttonStopCalculating.Text = "Остановить расчёт";
             this.toolTip1.SetToolTip(this.buttonStopCalculating, "Остановить процесс расчета");
             this.buttonStopCalculating.UseVisualStyleBackColor = true;
+            // 
+            // buttonAreaSettings
+            // 
+            this.buttonAreaSettings.BackgroundImage = global::CalculatingEfficiencyOfUnit.Properties.Resources.free_icon_gear_1357766;
+            this.buttonAreaSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonAreaSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAreaSettings.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
+            this.buttonAreaSettings.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonAreaSettings.Location = new System.Drawing.Point(18, 2);
+            this.buttonAreaSettings.Name = "buttonAreaSettings";
+            this.buttonAreaSettings.Size = new System.Drawing.Size(35, 35);
+            this.buttonAreaSettings.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.buttonAreaSettings, "Редактирование исходных данных");
+            this.buttonAreaSettings.UseVisualStyleBackColor = true;
+            this.buttonAreaSettings.Click += new System.EventHandler(this.buttonAreaSettings_Click);
             // 
             // ClearProtocol
             // 
@@ -217,6 +267,20 @@ namespace CalculatingEfficiencyOfUnit
             this.toolTip1.SetToolTip(this.ClearProtocol, "Очистить протокол");
             this.ClearProtocol.UseVisualStyleBackColor = true;
             this.ClearProtocol.Click += new System.EventHandler(this.ClearProtocol_Click);
+            // 
+            // buttonSaveExcel
+            // 
+            this.buttonSaveExcel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonSaveExcel.BackgroundImage")));
+            this.buttonSaveExcel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonSaveExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSaveExcel.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
+            this.buttonSaveExcel.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonSaveExcel.Location = new System.Drawing.Point(59, 2);
+            this.buttonSaveExcel.Name = "buttonSaveExcel";
+            this.buttonSaveExcel.Size = new System.Drawing.Size(35, 35);
+            this.buttonSaveExcel.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.buttonSaveExcel, "Сохранить отчет в Excel");
+            this.buttonSaveExcel.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -261,14 +325,14 @@ namespace CalculatingEfficiencyOfUnit
             this.dataGridViewForResult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewForResult.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewForResult.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.MenuText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewForResult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.MenuText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewForResult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewForResult.ColumnHeadersHeight = 35;
             this.dataGridViewForResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewForResult.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -276,26 +340,26 @@ namespace CalculatingEfficiencyOfUnit
             this.dispatcherName,
             this.deltaU,
             this.efficiency});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Snow;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewForResult.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Snow;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewForResult.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewForResult.GridColor = System.Drawing.SystemColors.Desktop;
             this.dataGridViewForResult.Location = new System.Drawing.Point(14, 24);
             this.dataGridViewForResult.Name = "dataGridViewForResult";
             this.dataGridViewForResult.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dataGridViewForResult.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.GhostWhite;
-            this.dataGridViewForResult.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.GhostWhite;
+            this.dataGridViewForResult.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewForResult.RowTemplate.Height = 24;
             this.dataGridViewForResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewForResult.Size = new System.Drawing.Size(674, 279);
@@ -332,6 +396,7 @@ namespace CalculatingEfficiencyOfUnit
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 776);
+            this.Controls.Add(this.buttonAreaSettings);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonSaveExcel);
@@ -367,8 +432,7 @@ namespace CalculatingEfficiencyOfUnit
         private System.Windows.Forms.TextBox LoadRg2TextBox;
         private System.Windows.Forms.Label labelFilePath;
         private System.Windows.Forms.Button buttonUploadAndCheck;
-        private System.Windows.Forms.TextBox textBoxForNodeNumber;
-        private System.Windows.Forms.Label labelNodeNumber;
+        private System.Windows.Forms.Label labelAreaName;
         private System.Windows.Forms.Button buttornCalculate;
         private System.Windows.Forms.Button buttonSaveExcel;
         private System.Windows.Forms.ToolTip toolTip1;
@@ -383,6 +447,12 @@ namespace CalculatingEfficiencyOfUnit
         private System.Windows.Forms.DataGridViewTextBoxColumn efficiency;
         private System.Windows.Forms.Button ClearProtocol;
         private System.Windows.Forms.OpenFileDialog Rg2OpenFileDialog;
+        private System.Windows.Forms.Button buttonAreaSettings;
+        private System.Windows.Forms.ComboBox comboBoxAreaName;
+        private System.Windows.Forms.ComboBox comboBoxKPName;
+        private System.Windows.Forms.Label labelKPName;
+        private System.Windows.Forms.Label labelNodeNumber;
+        private System.Windows.Forms.TextBox nodeNumberTextBox;
     }
 }
 

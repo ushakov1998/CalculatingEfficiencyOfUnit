@@ -244,7 +244,7 @@ namespace WorkWithRastrWin.RastrModel
                 }
                 return inCell;
             }
-            catch (Exception exp)
+            catch (Exception)
             {
                 new Exception("Ошибка при попытке получения значения по ключевым параметрам");
                 return null;

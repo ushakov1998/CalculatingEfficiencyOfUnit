@@ -21,6 +21,10 @@ namespace CalculatingEfficiencyOfUnit
         public MainForm()
         {
             InitializeComponent();
+            // comboBoxAreaName
+            this.comboBoxAreaName.Items.AddRange(new object[] {"ОДУ Востока",
+                "ОДУ Сибири", "ОДУ Урала"});
+
         }
 
         /// <summary>
@@ -118,6 +122,12 @@ namespace CalculatingEfficiencyOfUnit
         private void ProtocolDataGrid_SelectionChanged(object sender, EventArgs e)
         {
             ProtocolDataGrid.ClearSelection();
+        }
+
+        private void buttonAreaSettings_Click(object sender, EventArgs e)
+        {
+            AreaSettingsForm newForm = new AreaSettingsForm();
+            newForm.Show();
         }
     }
 }

@@ -63,6 +63,26 @@ namespace CalculatingEfficiencyOfUnit.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap free_icon_bin_484662 {
+            get {
+                object obj = ResourceManager.GetObject("free-icon-bin-484662", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap free_icon_gear_1357766 {
+            get {
+                object obj = ResourceManager.GetObject("free-icon-gear-1357766", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap removetheproperty_theapplication_eliminar_2965 {
             get {
                 object obj = ResourceManager.GetObject("removetheproperty_theapplication_eliminar_2965", resourceCulture);

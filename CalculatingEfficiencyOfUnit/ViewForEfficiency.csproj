@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AreaSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AreaSettingsForm.Designer.cs">
+      <DependentUpon>AreaSettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +60,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AreaSettingsForm.resx">
+      <DependentUpon>AreaSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,6 +103,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\free-icon-gear-1357766.png" />
+    <None Include="Resources\free-icon-bin-484662.png" />
     <Content Include="Resources\info.png" />
     <Content Include="Resources\new_close.png" />
   </ItemGroup>

@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CalculationOfEfficiency.cs" />
     <Compile Include="Data\DataForView\EfficiencyBase.cs" />
     <Compile Include="Data\DataForView\EfficiencyGenerator.cs" />
     <Compile Include="Data\DataForView\EfficiencyManageSkrm.cs" />
