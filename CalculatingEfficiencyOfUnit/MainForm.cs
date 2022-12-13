@@ -24,7 +24,17 @@ namespace CalculatingEfficiencyOfUnit
             // comboBoxAreaName
             this.comboBoxAreaName.Items.AddRange(new object[] {"ОДУ Востока",
                 "ОДУ Сибири"});
+            buttonUploadAndCheck.Enabled = false;
+            comboBoxKPName.Enabled = false;
 
+        }
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            DataGridViewTools.CreateTableForProtocol(ProtocolDataGrid);
+            /*EfficiencyOperations.Message += MessageHandler;
+            EfficiencyOperations.Step += ProgressHandler;
+
+            LoadFilesFromXML();*/
         }
 
         /// <summary>
@@ -151,6 +161,7 @@ namespace CalculatingEfficiencyOfUnit
 
             if (comboBoxAreaName.SelectedIndex == 1)
             {
+                comboBoxKPName.Enabled = true;
                 this.comboBoxKPName.Items.AddRange(new object[] {"ПС Юрга 500 кВ",
                 "ПС 500 кВ Заря", "ПС 500 кВ Ново-Анжерская"});
             }
@@ -176,6 +187,19 @@ namespace CalculatingEfficiencyOfUnit
                 nodeNumberTextBox.Text = "60690205";
             }
 
+        }
+
+        private void nodeNumberTextBox_KeyPess(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar))
+            {
+                e.KeyChar = '\0';
+            }
+        }
+
+        private void nodeNumberTextBox_TextChanged(object sender, EventArgs e)
+        {
+            buttonUploadAndCheck.Enabled = true;
         }
     }
 }

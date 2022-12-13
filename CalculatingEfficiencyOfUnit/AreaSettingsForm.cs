@@ -26,5 +26,13 @@ namespace CalculatingEfficiencyOfUnit
         {
             AreaComboBox.Items.Remove(AreaComboBox.SelectedItem);
         }
+
+        private void AddKPNodeButton_Click(object sender, EventArgs e)
+        {
+
+            NodeAndNameKPComboBox.Items.Add(NameKPTextBox.Text + " Узел: " +NodeNumberTextBox.Text);
+        }
+
+       
     }
 }
