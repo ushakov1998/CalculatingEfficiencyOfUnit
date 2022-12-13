@@ -23,7 +23,7 @@ namespace CalculatingEfficiencyOfUnit
             InitializeComponent();
             // comboBoxAreaName
             this.comboBoxAreaName.Items.AddRange(new object[] {"ОДУ Востока",
-                "ОДУ Сибири", "ОДУ Урала"});
+                "ОДУ Сибири"});
 
         }
 
@@ -96,7 +96,7 @@ namespace CalculatingEfficiencyOfUnit
                 try
                 {
                     textbox.Text = openFileDialog.FileName;
-                    /*RastrOperations.LoadRepl(textbox.Text);*/
+                    RastrOperations.LoadFile(openFileDialog.FileName, shablon);
                     AddMessageToDataGrid(MessageType.Info, $"Загружен файл '{openFileDialog.FileName}'.");
                 }
                 catch (Exception exeption)
@@ -106,6 +106,18 @@ namespace CalculatingEfficiencyOfUnit
                         "\nПопробуйте ещё раз.\n" + exeption.Message);
                 }
             }
+        }
+
+        /// <summary>
+        /// Обработчик сообщений
+        /// </summary>
+        private void MessageHandler(object sender, EventMessageProtocol e)
+        {
+            this.Invoke((Action)delegate
+            {
+                AddMessageToDataGrid(e.MessageType, e.Message);
+
+            });
         }
 
         /// <summary>
@@ -128,6 +140,42 @@ namespace CalculatingEfficiencyOfUnit
         {
             AreaSettingsForm newForm = new AreaSettingsForm();
             newForm.Show();
+        }
+
+        private void comboBoxAreaName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxAreaName.SelectedIndex == 0)
+            {
+                comboBoxKPName.Items.Clear();
+            }
+
+            if (comboBoxAreaName.SelectedIndex == 1)
+            {
+                this.comboBoxKPName.Items.AddRange(new object[] {"ПС Юрга 500 кВ",
+                "ПС 500 кВ Заря", "ПС 500 кВ Ново-Анжерская"});
+            }
+        }
+
+        private void comboBoxKPName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxAreaName.SelectedIndex == 1 & comboBoxKPName.SelectedIndex == 0)
+            {
+                nodeNumberTextBox.Clear();
+                nodeNumberTextBox.Text = "60690352";
+            }
+
+            if (comboBoxAreaName.SelectedIndex == 1 & comboBoxKPName.SelectedIndex == 1)
+            {
+                nodeNumberTextBox.Clear();
+                nodeNumberTextBox.Text = "60700807";
+            }
+
+            if (comboBoxAreaName.SelectedIndex == 1 & comboBoxKPName.SelectedIndex == 2)
+            {
+                nodeNumberTextBox.Clear();
+                nodeNumberTextBox.Text = "60690205";
+            }
+
         }
     }
 }

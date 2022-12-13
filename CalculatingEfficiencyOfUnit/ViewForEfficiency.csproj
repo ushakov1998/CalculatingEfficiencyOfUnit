@@ -97,16 +97,16 @@
     <None Include="Resources\removetheproperty_theapplication_eliminar_2965.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MofelOfEfficiency\ModelOfEfficiency.csproj">
-      <Project>{D3B0B4EF-43F9-4895-B4A1-D57554505C58}</Project>
-      <Name>ModelOfEfficiency</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\free-icon-gear-1357766.png" />
     <None Include="Resources\free-icon-bin-484662.png" />
     <Content Include="Resources\info.png" />
     <Content Include="Resources\new_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MofelOfEfficiency\ModelOfEfficiency.csproj">
+      <Project>{d3b0b4ef-43f9-4895-b4a1-d57554505c58}</Project>
+      <Name>ModelOfEfficiency</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

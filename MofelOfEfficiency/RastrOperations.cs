@@ -9,23 +9,24 @@ using ASTRALib;
 namespace MDAWin
 {
     /// <summary>
-    ////Операции в RastrWin3
+    //// Операции в RastrWin3
     /// </summary>
-    public class RastrOperations
+    public abstract class RastrOperations
     {
         /// <summary>
         /// Экземпляр класса RastrWin3
         /// </summary>
-        public Rastr _rastr;
+        public static Rastr _rastr = new Rastr();
 
         /// <summary>
-        ////Создание нового экземпляра класса Rastr
+        /// Загрузка файла в рабочую область 
         /// </summary>
-        public RastrOperations()
+        public static void LoadFile(string filePath, string shablon)
         {
-            _rastr = new Rastr();
+            _rastr.Load(RG_KOD.RG_REPL, filePath, shablon);
         }
 
+       
         public void RastrLockIvent()
         {
             _rastr.LockEvent = 1;
