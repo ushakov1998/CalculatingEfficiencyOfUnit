@@ -31,11 +31,12 @@ namespace CalculatingEfficiencyOfUnit
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBoxFileSelection = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.LoadRg2Button = new System.Windows.Forms.Button();
             this.buttonUploadAndCheck = new System.Windows.Forms.Button();
             this.LoadRg2TextBox = new System.Windows.Forms.TextBox();
@@ -59,10 +60,10 @@ namespace CalculatingEfficiencyOfUnit
             this.dataGridViewForResult = new System.Windows.Forms.DataGridView();
             this.nodeNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dispatcherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deltaU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.efficiency = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EfficiencyMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EfficiencyMin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rg2OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBoxFileSelection.SuspendLayout();
             this.groupBoxInitialData.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -73,9 +74,9 @@ namespace CalculatingEfficiencyOfUnit
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(-5, 752);
+            this.progressBar1.Location = new System.Drawing.Point(-5, 754);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(751, 23);
+            this.progressBar1.Size = new System.Drawing.Size(988, 23);
             this.progressBar1.TabIndex = 0;
             // 
             // groupBoxFileSelection
@@ -86,19 +87,29 @@ namespace CalculatingEfficiencyOfUnit
             this.groupBoxFileSelection.Controls.Add(this.LoadRg2TextBox);
             this.groupBoxFileSelection.Controls.Add(this.labelFilePath);
             this.groupBoxFileSelection.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
-            this.groupBoxFileSelection.Location = new System.Drawing.Point(18, 38);
+            this.groupBoxFileSelection.Location = new System.Drawing.Point(17, 12);
             this.groupBoxFileSelection.Name = "groupBoxFileSelection";
-            this.groupBoxFileSelection.Size = new System.Drawing.Size(340, 110);
+            this.groupBoxFileSelection.Size = new System.Drawing.Size(340, 134);
             this.groupBoxFileSelection.TabIndex = 1;
             this.groupBoxFileSelection.TabStop = false;
             this.groupBoxFileSelection.Text = "Выбор файла режима";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label1.Location = new System.Drawing.Point(241, 94);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 16);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Узел найден";
             // 
             // LoadRg2Button
             // 
             this.LoadRg2Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LoadRg2Button.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LoadRg2Button.ForeColor = System.Drawing.Color.Black;
-            this.LoadRg2Button.Location = new System.Drawing.Point(14, 66);
+            this.LoadRg2Button.Location = new System.Drawing.Point(120, 56);
             this.LoadRg2Button.Name = "LoadRg2Button";
             this.LoadRg2Button.Size = new System.Drawing.Size(62, 27);
             this.LoadRg2Button.TabIndex = 2;
@@ -112,7 +123,7 @@ namespace CalculatingEfficiencyOfUnit
             this.buttonUploadAndCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUploadAndCheck.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonUploadAndCheck.ForeColor = System.Drawing.Color.Black;
-            this.buttonUploadAndCheck.Location = new System.Drawing.Point(82, 66);
+            this.buttonUploadAndCheck.Location = new System.Drawing.Point(188, 56);
             this.buttonUploadAndCheck.Name = "buttonUploadAndCheck";
             this.buttonUploadAndCheck.Size = new System.Drawing.Size(136, 27);
             this.buttonUploadAndCheck.TabIndex = 3;
@@ -149,7 +160,7 @@ namespace CalculatingEfficiencyOfUnit
             this.groupBoxInitialData.Controls.Add(this.comboBoxAreaName);
             this.groupBoxInitialData.Controls.Add(this.labelAreaName);
             this.groupBoxInitialData.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
-            this.groupBoxInitialData.Location = new System.Drawing.Point(372, 12);
+            this.groupBoxInitialData.Location = new System.Drawing.Point(363, 12);
             this.groupBoxInitialData.Name = "groupBoxInitialData";
             this.groupBoxInitialData.Size = new System.Drawing.Size(349, 136);
             this.groupBoxInitialData.TabIndex = 2;
@@ -252,7 +263,7 @@ namespace CalculatingEfficiencyOfUnit
             this.buttonAreaSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAreaSettings.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
             this.buttonAreaSettings.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonAreaSettings.Location = new System.Drawing.Point(18, 2);
+            this.buttonAreaSettings.Location = new System.Drawing.Point(926, 12);
             this.buttonAreaSettings.Name = "buttonAreaSettings";
             this.buttonAreaSettings.Size = new System.Drawing.Size(35, 35);
             this.buttonAreaSettings.TabIndex = 9;
@@ -267,7 +278,7 @@ namespace CalculatingEfficiencyOfUnit
             this.ClearProtocol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ClearProtocol.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
             this.ClearProtocol.ForeColor = System.Drawing.SystemColors.Control;
-            this.ClearProtocol.Location = new System.Drawing.Point(653, 16);
+            this.ClearProtocol.Location = new System.Drawing.Point(906, 16);
             this.ClearProtocol.Name = "ClearProtocol";
             this.ClearProtocol.Size = new System.Drawing.Size(35, 35);
             this.ClearProtocol.TabIndex = 18;
@@ -282,7 +293,7 @@ namespace CalculatingEfficiencyOfUnit
             this.buttonSaveExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveExcel.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
             this.buttonSaveExcel.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonSaveExcel.Location = new System.Drawing.Point(59, 2);
+            this.buttonSaveExcel.Location = new System.Drawing.Point(926, 53);
             this.buttonSaveExcel.Name = "buttonSaveExcel";
             this.buttonSaveExcel.Size = new System.Drawing.Size(35, 35);
             this.buttonSaveExcel.TabIndex = 5;
@@ -296,23 +307,23 @@ namespace CalculatingEfficiencyOfUnit
             this.groupBox1.Controls.Add(this.buttornCalculate);
             this.groupBox1.Controls.Add(this.buttonStopCalculating);
             this.groupBox1.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
-            this.groupBox1.Location = new System.Drawing.Point(18, 487);
+            this.groupBox1.Location = new System.Drawing.Point(17, 487);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(703, 259);
+            this.groupBox1.Size = new System.Drawing.Size(950, 259);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Расчёт";
             // 
             // ProtocolDataGrid
             // 
-            this.ProtocolDataGrid.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            this.ProtocolDataGrid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ProtocolDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ProtocolDataGrid.Location = new System.Drawing.Point(14, 56);
             this.ProtocolDataGrid.Margin = new System.Windows.Forms.Padding(2);
             this.ProtocolDataGrid.Name = "ProtocolDataGrid";
             this.ProtocolDataGrid.RowHeadersWidth = 51;
             this.ProtocolDataGrid.RowTemplate.Height = 24;
-            this.ProtocolDataGrid.Size = new System.Drawing.Size(674, 188);
+            this.ProtocolDataGrid.Size = new System.Drawing.Size(930, 188);
             this.ProtocolDataGrid.TabIndex = 17;
             // 
             // groupBox2
@@ -320,9 +331,9 @@ namespace CalculatingEfficiencyOfUnit
             this.groupBox2.Controls.Add(this.dataGridViewForResult);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox2.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
-            this.groupBox2.Location = new System.Drawing.Point(18, 154);
+            this.groupBox2.Location = new System.Drawing.Point(17, 154);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(703, 327);
+            this.groupBox2.Size = new System.Drawing.Size(950, 327);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Результат расчёта";
@@ -332,44 +343,44 @@ namespace CalculatingEfficiencyOfUnit
             this.dataGridViewForResult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewForResult.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewForResult.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
-            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.MenuText;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewForResult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
-            this.dataGridViewForResult.ColumnHeadersHeight = 35;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.MenuText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewForResult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewForResult.ColumnHeadersHeight = 40;
             this.dataGridViewForResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewForResult.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nodeNumber,
             this.dispatcherName,
-            this.deltaU,
-            this.efficiency});
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
-            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.Snow;
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewForResult.DefaultCellStyle = dataGridViewCellStyle29;
+            this.EfficiencyMax,
+            this.EfficiencyMin});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Snow;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewForResult.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewForResult.GridColor = System.Drawing.SystemColors.Desktop;
-            this.dataGridViewForResult.Location = new System.Drawing.Point(14, 24);
+            this.dataGridViewForResult.Location = new System.Drawing.Point(10, 24);
             this.dataGridViewForResult.Name = "dataGridViewForResult";
             this.dataGridViewForResult.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dataGridViewForResult.RowHeadersVisible = false;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.GhostWhite;
-            this.dataGridViewForResult.RowsDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.GhostWhite;
+            this.dataGridViewForResult.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewForResult.RowTemplate.Height = 24;
             this.dataGridViewForResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridViewForResult.Size = new System.Drawing.Size(674, 279);
+            this.dataGridViewForResult.Size = new System.Drawing.Size(934, 279);
             this.dataGridViewForResult.TabIndex = 4;
             // 
             // nodeNumber
@@ -383,36 +394,36 @@ namespace CalculatingEfficiencyOfUnit
             this.dispatcherName.HeaderText = "Диспетчерское наименование";
             this.dispatcherName.Name = "dispatcherName";
             // 
-            // deltaU
+            // EfficiencyMax
             // 
-            this.deltaU.FillWeight = 50F;
-            this.deltaU.HeaderText = "ΔU";
-            this.deltaU.Name = "deltaU";
+            this.EfficiencyMax.HeaderText = "Эффективность (Max), [МВар/кВ]";
+            this.EfficiencyMax.Name = "EfficiencyMax";
             // 
-            // efficiency
+            // EfficiencyMin
             // 
-            this.efficiency.HeaderText = "Эффективность";
-            this.efficiency.Name = "efficiency";
+            this.EfficiencyMin.HeaderText = "Эффективность (Min), [МВар/кВ]";
+            this.EfficiencyMin.Name = "EfficiencyMin";
             // 
             // Rg2OpenFileDialog
             // 
             this.Rg2OpenFileDialog.FileName = "Rg2OpenFileDialog";
             // 
-            // label1
+            // groupBox3
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label1.Location = new System.Drawing.Point(239, 73);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 16);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Узел найден";
+            this.groupBox3.Font = new System.Drawing.Font("Bahnschrift", 9.75F);
+            this.groupBox3.Location = new System.Drawing.Point(718, 12);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(199, 136);
+            this.groupBox3.TabIndex = 10;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Влияющие факторы";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 776);
+            this.ClientSize = new System.Drawing.Size(984, 781);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.buttonAreaSettings);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -459,10 +470,6 @@ namespace CalculatingEfficiencyOfUnit
         private System.Windows.Forms.DataGridView ProtocolDataGrid;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridViewForResult;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nodeNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dispatcherName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn deltaU;
-        private System.Windows.Forms.DataGridViewTextBoxColumn efficiency;
         private System.Windows.Forms.Button ClearProtocol;
         private System.Windows.Forms.OpenFileDialog Rg2OpenFileDialog;
         private System.Windows.Forms.Button buttonAreaSettings;
@@ -472,6 +479,11 @@ namespace CalculatingEfficiencyOfUnit
         private System.Windows.Forms.Label labelNodeNumber;
         private System.Windows.Forms.TextBox nodeNumberTextBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nodeNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dispatcherName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EfficiencyMax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EfficiencyMin;
     }
 }
 
