@@ -14,13 +14,10 @@ namespace WorkWithRastrWin.Data.DataForView
 
         public double QRange { get; set; }
 
-
         #endregion
 
         #region Конструкторы
         
-
-
         public EfficiencyManageSkrm(int nodeNumber, string nodeName, double qDel, double uDel) : base(nodeNumber, nodeName, uDel)
         {
             if (uDel < 0.01)
@@ -34,6 +31,7 @@ namespace WorkWithRastrWin.Data.DataForView
             QRange = Math.Round(qDel, 2);
             UDel = Math.Round(uDel, 2);
         }
+        
         #endregion
 
         public override string ToString()

@@ -1,10 +1,12 @@
-﻿using MDAWin;
-using ModelOfEfficiency;
+﻿using ModelOfEfficiency;
 using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-
+using WorkWithRastrWin;
+using WorkWithRastrWin.Data.DataForView;
+using WorkWithRastrWin.Data.Table;
+using WorkWithRastrWin.RastrModel;
 
 namespace CalculatingEfficiencyOfUnit
 {
@@ -14,6 +16,11 @@ namespace CalculatingEfficiencyOfUnit
         /// Путь к файлу исходного режима
         /// </summary>
         private string _rg2FileName;
+
+
+        private NodeOperation newNodeOperation = new NodeOperation();
+        private RastrOperations newRastrOperation = new RastrOperations();
+        private EfficiencyOperation newEfficiencyOperation = new EfficiencyOperation();
              
         /// <summary>
         /// Главная форма
@@ -28,13 +35,21 @@ namespace CalculatingEfficiencyOfUnit
             comboBoxKPName.Enabled = false;
 
         }
+
+
+        
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             DataGridViewTools.CreateTableForProtocol(ProtocolDataGrid);
             /*EfficiencyOperations.Message += MessageHandler;
             EfficiencyOperations.Step += ProgressHandler;
-
-            LoadFilesFromXML();*/
+                        */
+            buttornCalculate.Enabled = false;
+            labelCheckIndex.Hide();
+            newNodeOperation.ThisRastrOperations = newRastrOperation;
+            newEfficiencyOperation.ThisRastrOperations = newRastrOperation;
+                        
         }
 
         /// <summary>
@@ -44,12 +59,12 @@ namespace CalculatingEfficiencyOfUnit
         {
             string Rg2Filter = "Файл режима (*.rg2)|*.rg2";
             string shablon = @"C:\Users\Aleksandr\source\repos\ushakov1998\Diploma\CalculatingEfficiencyOfUnit\CalculatingEfficiencyOfUnit\Resources\режим.rg2";
-
+                                   
             try
             {
                 if (File.Exists(shablon))
                 {
-
+                   
                     LoadInitialFile(Rg2Filter, Rg2OpenFileDialog, LoadRg2TextBox, shablon);
                     _rg2FileName = LoadRg2TextBox.Text;
                 }
@@ -106,7 +121,7 @@ namespace CalculatingEfficiencyOfUnit
                 try
                 {
                     textbox.Text = openFileDialog.FileName;
-                    RastrOperations.LoadFile(openFileDialog.FileName, shablon);
+                    newRastrOperation.LoadReplace(openFileDialog.FileName);
                     AddMessageToDataGrid(MessageType.Info, $"Загружен файл '{openFileDialog.FileName}'.");
                 }
                 catch (Exception exeption)
@@ -146,12 +161,22 @@ namespace CalculatingEfficiencyOfUnit
             ProtocolDataGrid.ClearSelection();
         }
 
+        /// <summary>
+        /// Вызов формы добавления КП
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAreaSettings_Click(object sender, EventArgs e)
         {
             AreaSettingsForm newForm = new AreaSettingsForm();
             newForm.Show();
         }
 
+        /// <summary>
+        /// Временная замена xml-структуре #1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxAreaName_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxAreaName.SelectedIndex == 0)
@@ -162,11 +187,17 @@ namespace CalculatingEfficiencyOfUnit
             if (comboBoxAreaName.SelectedIndex == 1)
             {
                 comboBoxKPName.Enabled = true;
+                comboBoxKPName.Items.Clear();
                 this.comboBoxKPName.Items.AddRange(new object[] {"ПС Юрга 500 кВ",
-                "ПС 500 кВ Заря", "ПС 500 кВ Ново-Анжерская"});
+                "ПС 500 кВ Заря"});
             }
         }
 
+        /// <summary>
+        /// Временная замена xml-структуре #2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxKPName_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxAreaName.SelectedIndex == 1 & comboBoxKPName.SelectedIndex == 0)
@@ -180,15 +211,14 @@ namespace CalculatingEfficiencyOfUnit
                 nodeNumberTextBox.Clear();
                 nodeNumberTextBox.Text = "60700807";
             }
-
-            if (comboBoxAreaName.SelectedIndex == 1 & comboBoxKPName.SelectedIndex == 2)
-            {
-                nodeNumberTextBox.Clear();
-                nodeNumberTextBox.Text = "60690205";
-            }
-
+                     
         }
 
+        /// <summary>
+        /// Обработка ввода номера узла
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void nodeNumberTextBox_KeyPess(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar))
@@ -200,6 +230,73 @@ namespace CalculatingEfficiencyOfUnit
         private void nodeNumberTextBox_TextChanged(object sender, EventArgs e)
         {
             buttonUploadAndCheck.Enabled = true;
+            buttornCalculate.Enabled = PrepareForCalculation();
+        }
+
+        /// <summary>
+        /// Проверка наличия узла
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonUploadAndCheck_Click(object sender, EventArgs e)
+        {
+            
+            if (nodeNumberTextBox.Text != String.Empty)
+            {
+                try
+                {
+                    var data = newNodeOperation.GetNodeByNum(Convert.ToInt32(nodeNumberTextBox.Text)).NodeName;
+                    
+                    labelCheckIndex.Show();
+                    AddMessageToDataGrid(MessageType.Info, $"Найден узел: '{data}'." );
+                    
+                }
+                catch (Exception exeption)
+                {
+                    MessageBox.Show("Ошибка! Данный узел не найден в расчетной модели." +
+                        "\nПопробуйте ещё раз.\n" + exeption.Message);
+                }
+            }
+
+        }
+        
+        /// <summary>
+        /// Подготовка к расчету, проверка валидности
+        /// заполненных данных
+        /// </summary>
+        /// <returns></returns>
+        bool PrepareForCalculation()
+        {
+            if (nodeNumberTextBox.Text != String.Empty & LoadRg2TextBox.Text != String.Empty)
+                return true;
+            else return false;
+        }
+
+        /// <summary>
+        /// Начать расчет
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttornCalculate_Click(object sender, EventArgs e)
+        {
+            if (nodeNumberTextBox.Text != String.Empty & LoadRg2TextBox.Text != String.Empty)
+            {
+                try
+                {
+                    var efficiency = newEfficiencyOperation.GetEfficiencyManagedSkrm(3213, 123231);
+                    
+                }
+                catch (Exception exeption)
+                {
+                    MessageBox.Show("Ошибка! Данный узел не найден в расчетной модели." +
+                        "\nПопробуйте ещё раз.\n" + exeption.Message);
+                }
+            }
+            else
+            {
+
+                AddMessageToDataGrid(MessageType.Error, $"Запуск расчета невозможен. Отсуствует файл режима или номер исследуемого КП.");
+            }
         }
     }
 }

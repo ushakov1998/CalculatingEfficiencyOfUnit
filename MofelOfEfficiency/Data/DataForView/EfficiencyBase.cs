@@ -16,8 +16,6 @@ namespace WorkWithRastrWin.Data.DataForView
 
         public double UDel { get; set; }
 
-
-
         #endregion
 
         #region Конструкторы

@@ -189,6 +189,11 @@ namespace WorkWithRastrWin
             return listManageSkrmPoint;
         }
 
+        public static void GetEfficiencyManagedSkrm()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<EfficiencyGenerator> GetEfficiencyGenerator(int nodeKpNum, int generatorNum, 
             bool fixationAllStation = false, bool fixationOnePart = false)
         {
