@@ -68,7 +68,6 @@
     <Compile Include="RastrModel\RastrConst.cs" />
     <Compile Include="RastrModel\RastrOperations.cs" />
     <Compile Include="RastrModel\VetvOperation.cs" />
-    <Compile Include="RastrOperations.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

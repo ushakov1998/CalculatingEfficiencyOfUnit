@@ -524,10 +524,6 @@ namespace WorkWithRastrWin.RastrModel
             ITable table = _rastr.Tables.Item(tableName);
             table.DelRow(index);
         }
-
-
-
-
-
+                
     }
 }

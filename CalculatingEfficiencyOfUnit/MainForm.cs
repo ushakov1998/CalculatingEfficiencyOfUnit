@@ -4,8 +4,6 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using WorkWithRastrWin;
-using WorkWithRastrWin.Data.DataForView;
-using WorkWithRastrWin.Data.Table;
 using WorkWithRastrWin.RastrModel;
 
 namespace CalculatingEfficiencyOfUnit
@@ -31,6 +29,7 @@ namespace CalculatingEfficiencyOfUnit
             // comboBoxAreaName
             this.comboBoxAreaName.Items.AddRange(new object[] {"ОДУ Востока",
                 "ОДУ Сибири"});
+            // buttons presets
             buttonUploadAndCheck.Enabled = false;
             comboBoxKPName.Enabled = false;
 
@@ -47,9 +46,12 @@ namespace CalculatingEfficiencyOfUnit
                         */
             buttornCalculate.Enabled = false;
             labelCheckIndex.Hide();
+            labelFalseCheckNode.Hide();
+            nodeNumberTextBox.MaxLength = 9;
+
             newNodeOperation.ThisRastrOperations = newRastrOperation;
             newEfficiencyOperation.ThisRastrOperations = newRastrOperation;
-                        
+
         }
 
         /// <summary>
@@ -57,6 +59,8 @@ namespace CalculatingEfficiencyOfUnit
         /// </summary>
         private void buttonSelectFile_Click(object sender, EventArgs e)
         {
+            labelCheckIndex.Hide();
+            labelFalseCheckNode.Hide();
             string Rg2Filter = "Файл режима (*.rg2)|*.rg2";
             string shablon = @"C:\Users\Aleksandr\source\repos\ushakov1998\Diploma\CalculatingEfficiencyOfUnit\CalculatingEfficiencyOfUnit\Resources\режим.rg2";
                                    
@@ -245,11 +249,22 @@ namespace CalculatingEfficiencyOfUnit
             {
                 try
                 {
+                    labelFalseCheckNode.Hide();
+                    labelCheckIndex.Hide();
                     var data = newNodeOperation.GetNodeByNum(Convert.ToInt32(nodeNumberTextBox.Text)).NodeName;
-                    
-                    labelCheckIndex.Show();
-                    AddMessageToDataGrid(MessageType.Info, $"Найден узел: '{data}'." );
-                    
+
+                    if (data != "ПС 220 кВ Селенгинский ЦКК 1,2 сш 110 кВ ")
+
+                    {
+                        labelCheckIndex.Show();
+                        AddMessageToDataGrid(MessageType.Info, $"Найден узел: '{data}'.");
+                    }
+                    else
+                    {
+                        labelFalseCheckNode.Show();
+                        AddMessageToDataGrid(MessageType.Error, $"Узел не найден в модели, проверьте корректность ввода исходных данных.");
+                    }
+
                 }
                 catch (Exception exeption)
                 {
