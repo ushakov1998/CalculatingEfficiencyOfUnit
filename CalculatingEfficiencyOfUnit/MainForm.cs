@@ -32,7 +32,6 @@ namespace CalculatingEfficiencyOfUnit
             // buttons presets
             buttonUploadAndCheck.Enabled = false;
             comboBoxKPName.Enabled = false;
-
         }
 
 
@@ -51,7 +50,6 @@ namespace CalculatingEfficiencyOfUnit
 
             newNodeOperation.ThisRastrOperations = newRastrOperation;
             newEfficiencyOperation.ThisRastrOperations = newRastrOperation;
-
         }
 
         /// <summary>
@@ -138,6 +136,30 @@ namespace CalculatingEfficiencyOfUnit
         }
 
         /// <summary>
+        ///  Открытие диалогового окна, выбор и загрузка файла 
+        /// </summary>
+        public void LoadUt2(string openFileDialogFilter, OpenFileDialog openFileDialog, string shablon)
+        {
+            openFileDialog.Filter = openFileDialogFilter;
+            openFileDialog.RestoreDirectory = true;
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    newRastrOperation.LoadReplace(openFileDialog.FileName);
+                    AddMessageToDataGrid(MessageType.Info, $"Загружен файл '{openFileDialog.FileName}'.");
+                }
+                catch (Exception exeption)
+                {
+                    
+                    MessageBox.Show("Ошибка! Вы загрузили файл неверного формата." +
+                        "\nПопробуйте ещё раз.\n" + exeption.Message);
+                }
+            }
+        }
+
+        /// <summary>
         /// Обработчик сообщений
         /// </summary>
         private void MessageHandler(object sender, EventMessageProtocol e)
@@ -145,7 +167,6 @@ namespace CalculatingEfficiencyOfUnit
             this.Invoke((Action)delegate
             {
                 AddMessageToDataGrid(e.MessageType, e.Message);
-
             });
         }
 
@@ -312,6 +333,26 @@ namespace CalculatingEfficiencyOfUnit
 
                 AddMessageToDataGrid(MessageType.Error, $"Запуск расчета невозможен. Отсуствует файл режима или номер исследуемого КП.");
             }
+        }
+
+        private void buttonGeneratorOperations_Click(object sender, EventArgs e)
+        {
+            string Ut2Filter = "Файл траектории (*.ut2)|*.ut2";
+            string shablon = @"C:\Users\Aleksandr\source\repos\ushakov1998\Diploma\CalculatingEfficiencyOfUnit\CalculatingEfficiencyOfUnit\Resources\траектория утяжеления.ut2";
+
+            try
+            {
+                if (File.Exists(shablon))
+                {
+                    LoadUt2(Ut2Filter, Rg2OpenFileDialog, shablon);                 
+                }
+                else
+                {
+                    MessageBox.Show("Вам необходимо добавить шаблон 'траектория утяжеления.ut2' в папку Resources!");
+                }
+            }
+            catch { }
+
         }
     }
 }
